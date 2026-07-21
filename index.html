@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///C:/Users/USER/Downloads/Telegram%20Desktop/vocab_playground.html -->
+<html lang="uz"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Playground — So'z o'yinlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Vocabulary Playground — So&#39;z o&#39;yinlari_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12141c;
+    --bg-2:#0d0f16;
+    --surface:#1b1e29;
+    --surface-2:#242838;
+    --surface-3:#2d3244;
+    --border:rgba(255,255,255,0.09);
+    --border-soft:rgba(255,255,255,0.05);
+    --text:#eef0f6;
+    --text-muted:#8b8fa3;
+    --text-dim:#5f6377;
+    --gold:#e8b84a;
+    --gold-soft:rgba(232,184,74,0.14);
+    --teal:#56bfae;
+    --teal-soft:rgba(86,191,174,0.14);
+    --coral:#e2685a;
+    --coral-soft:rgba(226,104,90,0.14);
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1100px 500px at 15% -10%, rgba(232,184,74,0.08), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(86,191,174,0.07), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold-soft); color:var(--gold); }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:40px 20px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header.top{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  h1.title{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(30px,5vw,44px);
+    line-height:1.05;
+    margin:2px 0 4px;
+    letter-spacing:-0.01em;
+  }
+  h1.title em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold);
+  }
+  .subtitle{
+    color:var(--text-muted);
+    font-size:15px;
+    max-width:56ch;
+    line-height:1.5;
+  }
+
+  /* ---------- Tabs ---------- */
+  nav.tabs{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    margin:28px 0 26px;
+    padding:6px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+  }
+  nav.tabs button{
+    all:unset;
+    cursor:pointer;
+    text-align:center;
+    padding:11px 4px;
+    border-radius:calc(var(--radius) - 6px);
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--text-muted);
+    transition:background .18s ease, color .18s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+  }
+  nav.tabs button .num{
+    font-family:var(--font-mono);
+    font-size:10px;
+    color:var(--text-dim);
+    letter-spacing:.05em;
+  }
+  nav.tabs button:hover{ color:var(--text); background:var(--surface-2); }
+  nav.tabs button.active{
+    background:var(--gold-soft);
+    color:var(--gold);
+  }
+  nav.tabs button.active .num{ color:var(--gold); opacity:.75; }
+
+  /* ---------- Screens ---------- */
+  .screen{ display:none; animation:fadeIn .28s ease; }
+  .screen.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:var(--shadow);
+  }
+  .panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+  }
+  .panel-head h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 4px;
+  }
+  .panel-head p{
+    margin:0;
+    color:var(--text-muted);
+    font-size:13.5px;
+    max-width:48ch;
+  }
+  .stat-row{
+    display:flex;
+    gap:10px;
+    font-family:var(--font-mono);
+  }
+  .stat{
+    background:var(--surface-2);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-sm);
+    padding:7px 13px;
+    font-size:12.5px;
+    color:var(--text-muted);
+    text-align:center;
+    min-width:64px;
+  }
+  .stat b{ display:block; color:var(--text); font-size:16px; margin-bottom:1px; }
+
+  .btn{
+    all:unset;
+    cursor:pointer;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:13.5px;
+    padding:11px 20px;
+    border-radius:999px;
+    transition:transform .12s ease, background .15s ease, opacity .15s ease;
+    text-align:center;
+  }
+  .btn:active{ transform:scale(0.96); }
+  .btn-primary{ background:var(--gold); color:#1a1305; }
+  .btn-primary:hover{ opacity:.9; }
+  .btn-ghost{ background:var(--surface-2); color:var(--text); border:1px solid var(--border); }
+  .btn-ghost:hover{ background:var(--surface-3); }
+  .btn-sm{ padding:8px 14px; font-size:12.5px; }
+  .btn:disabled{ opacity:.35; cursor:not-allowed; }
+
+  mark.term{
+    background:none;
+    color:var(--gold);
+    font-weight:700;
+    font-style:italic;
+  }
+
+  /* ---------- FLASHCARDS ---------- */
+  .flash-stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+  }
+  .flash-progress{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-dim);
+    letter-spacing:.05em;
+  }
+  .card3d{
+    width:100%;
+    max-width:520px;
+    height:280px;
+    perspective:1400px;
+    cursor:pointer;
+  }
+  .card3d-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .5s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .card3d.flipped .card3d-inner{ transform:rotateY(180deg); }
+  .card-face{
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    border-radius:18px;
+    border:1px solid var(--border);
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:10px;
+  }
+  .card-front{
+    background:linear-gradient(160deg, var(--surface-2), var(--surface));
+  }
+  .card-front .word{
+    font-family:var(--font-display);
+    font-size:clamp(26px,4vw,34px);
+    font-weight:600;
+  }
+  .card-front .hint{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-dim);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .card-back{
+    background:linear-gradient(160deg, rgba(232,184,74,0.13), var(--surface));
+    transform:rotateY(180deg);
+    gap:14px;
+  }
+  .card-back .uz{
+    font-family:var(--font-mono);
+    color:var(--teal);
+    font-size:13.5px;
+  }
+  .card-back .def{
+    font-size:15px;
+    color:var(--text);
+    line-height:1.4;
+  }
+  .card-back .example{
+    font-size:13px;
+    color:var(--text-muted);
+    line-height:1.5;
+    font-style:italic;
+    border-top:1px solid var(--border-soft);
+    padding-top:12px;
+    margin-top:4px;
+  }
+  .flash-controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  /* ---------- QUIZ / SPEED shared ---------- */
+  .quiz-question{
+    background:var(--surface-2);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-sm);
+    padding:22px;
+    margin-bottom:18px;
+  }
+  .quiz-question .qlabel{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-dim);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:8px;
+  }
+  .quiz-question .qtext{
+    font-size:18px;
+    line-height:1.45;
+  }
+  .options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  @media (max-width:560px){ .options{ grid-template-columns:1fr; } }
+  .opt{
+    all:unset;
+    cursor:pointer;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+    font-size:14px;
+    line-height:1.35;
+    transition:background .15s ease, border-color .15s ease, transform .1s ease;
+  }
+  .opt:hover{ background:var(--surface-3); }
+  .opt.correct{ background:var(--teal-soft); border-color:var(--teal); color:var(--teal); }
+  .opt.wrong{ background:var(--coral-soft); border-color:var(--coral); color:var(--coral); }
+  .opt:disabled{ cursor:default; }
+
+  .result-box{
+    text-align:center;
+    padding:40px 20px;
+  }
+  .result-box .big{
+    font-family:var(--font-display);
+    font-size:48px;
+    font-weight:700;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+  .result-box p{ color:var(--text-muted); margin-bottom:20px; }
+
+  /* ---------- SPEED ---------- */
+  .timer-bar-track{
+    height:6px;
+    background:var(--surface-2);
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .timer-bar-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--teal), var(--gold));
+    width:100%;
+    transition:width 1s linear;
+  }
+  .timer-bar-fill.danger{ background:linear-gradient(90deg, var(--coral), var(--gold)); }
+
+  /* ---------- MEMORY ---------- */
+  .memory-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+  }
+  @media (max-width:560px){ .memory-grid{ grid-template-columns:repeat(3,1fr); } }
+  .mem-card{
+    aspect-ratio:1/1;
+    perspective:900px;
+    cursor:pointer;
+  }
+  .mem-card-inner{
+    position:relative;
+    width:100%;height:100%;
+    transition:transform .4s ease;
+    transform-style:preserve-3d;
+  }
+  .mem-card.open .mem-card-inner, .mem-card.matched .mem-card-inner{ transform:rotateY(180deg); }
+  .mem-face{
+    position:absolute;inset:0;
+    backface-visibility:hidden;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    padding:8px;
+    font-size:12.5px;
+    line-height:1.25;
+    border:1px solid var(--border);
+  }
+  .mem-front{ background:var(--surface-2); }
+  .mem-front::after{
+    content:"?";
+    font-family:var(--font-display);
+    font-size:22px;
+    color:var(--text-dim);
+  }
+  .mem-back{
+    background:var(--surface-3);
+    transform:rotateY(180deg);
+    font-weight:600;
+  }
+  .mem-card.matched .mem-back{ background:var(--teal-soft); color:var(--teal); border-color:var(--teal); }
+  .mem-card.wrongflash .mem-back{ background:var(--coral-soft); color:var(--coral); border-color:var(--coral); }
+
+  /* ---------- MATCHING ---------- */
+  .match-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width:560px){ .match-cols{ grid-template-columns:1fr; } }
+  .match-col{ display:flex; flex-direction:column; gap:8px; }
+  .match-item{
+    all:unset;
+    cursor:pointer;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    padding:12px 14px;
+    font-size:13.5px;
+    line-height:1.3;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .match-item:hover{ background:var(--surface-3); }
+  .match-item.selected{ border-color:var(--gold); background:var(--gold-soft); color:var(--gold); }
+  .match-item.matched{ border-color:var(--teal); background:var(--teal-soft); color:var(--teal); opacity:.7; cursor:default; }
+  .match-item.shake{ animation:shake .3s ease; border-color:var(--coral); background:var(--coral-soft); }
+  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-5px);} 75%{transform:translateX(5px);} }
+
+  footer.foot{
+    margin-top:36px;
+    text-align:center;
+    font-size:12px;
+    color:var(--text-dim);
+    font-family:var(--font-mono);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">TOEFL · Vocabulary Unit 2</div>
+    <h1 class="title">TOEFEL VOCABILUARY UNIT 2 PLAYGROUND</h1>
+    <p class="subtitle">10 ta so'z — 5 xil o'yin orqali mustahkamlang: flashcard, viktorina, xotira, tezkor tur va moslashtirish.</p>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-target="flashcards" class="active"><span>Flashcard</span><span class="num">01</span></button>
+    <button data-target="quiz"><span>Viktorina</span><span class="num">02</span></button>
+    <button data-target="memory"><span>Xotira</span><span class="num">03</span></button>
+    <button data-target="speed"><span>Tezkor tur</span><span class="num">04</span></button>
+    <button data-target="matching"><span>Moslashtirish</span><span class="num">05</span></button>
+  </nav>
+
+  <!-- ============ FLASHCARDS ============ -->
+  <section class="screen active" id="screen-flashcards">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Flashcard</h2>
+          <p>Kartani bosib ag'daring — ta'rif va misolni ko'ring.</p>
+        </div>
+      </div>
+      <div class="flash-stage">
+        <div class="flash-progress" id="flashProgress">1 / 10</div>
+        <div class="card3d" id="flashCard">
+          <div class="card3d-inner">
+            <div class="card-face card-front">
+              <div class="word" id="flashWord">anticipate</div>
+              <div class="hint">Ko'rish uchun bosing</div>
+            </div>
+            <div class="card-face card-back">
+              <div class="def" id="flashDef">v. to expect; to sense something before it happens</div>
+              <div class="example" id="flashExample">By placing sensors in earthquake-prone areas, scientists can <mark class="term">anticipate</mark> some tremors in time to warn the public.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flash-controls">
+          <button class="btn btn-ghost" id="flashPrev">← Oldingi</button>
+          <button class="btn btn-primary" id="flashShuffle">Aralashtirish</button>
+          <button class="btn btn-ghost" id="flashNext">Keyingi →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="screen" id="screen-quiz">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Viktorina</h2>
+          <p>Ta'rifga qarab to'g'ri so'z yoki iborani tanlang. 10 ta savol.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b id="quizScore">0</b>Ball</div>
+          <div class="stat"><b id="quizNum">1/10</b>Savol</div>
+        </div>
+      </div>
+      <div id="quizBody"></div>
+    </div>
+  </section>
+
+  <!-- ============ MEMORY ============ -->
+  <section class="screen" id="screen-memory">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Xotira o'yini</h2>
+          <p>So'zni o'zining ta'rifi bilan juftlang. 10 juft = 20 karta.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b id="memMoves">0</b>Harakat</div>
+          <div class="stat"><b id="memPairs">0/10</b>Juft</div>
+        </div>
+      </div>
+      <div class="memory-grid" id="memGrid"></div>
+      <div class="flash-controls" style="margin-top:18px;">
+        <button class="btn btn-primary" id="memRestart">Qayta boshlash</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPEED ============ -->
+  <section class="screen" id="screen-speed">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Tezkor tur</h2>
+          <p>20 soniyada imkon qadar ko'proq to'g'ri javob bering.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b id="speedScore">0</b>Ball</div>
+          <div class="stat"><b id="speedTime">20</b>Soniya</div>
+          <button class="btn btn-ghost btn-sm" id="speedRestartTop">↻ Qayta boshlash</button>
+        </div>
+      </div>
+      <div id="speedBody">
+        <div class="result-box">
+          <div class="big">⚡</div>
+          <p>Tayyor bo'lganingizda boshlang. Har bir to'g'ri javob +1 ball.</p>
+          <button class="btn btn-primary" id="speedStart">Boshlash</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MATCHING ============ -->
+  <section class="screen" id="screen-matching">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Moslashtirish</h2>
+          <p>So'zni mos ta'rifi bilan bog'lang. Ikkalasini ham bosing.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b id="matchPairs">0/10</b>Juft</div>
+          <div class="stat"><b id="matchRound">1</b>Tur</div>
+        </div>
+      </div>
+      <div class="match-cols">
+        <div class="match-col" id="matchWords"></div>
+        <div class="match-col" id="matchDefs"></div>
+      </div>
+      <div class="flash-controls" style="margin-top:18px;">
+        <button class="btn btn-ghost" id="matchNextRound">Keyingi tur →</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">CREATED BY FAZLIDDIN XISOMIDDINOV</footer>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const VOCAB = [
+  {en:"anticipate", def:"v. to expect; to sense something before it happens", ex:"By placing sensors in earthquake-prone areas, scientists can anticipate some tremors in time to warn the public."},
+  {en:"catastrophic", def:"adj. extremely harmful; causing financial or physical ruin", ex:"The architect died in a catastrophic elevator accident."},
+  {en:"collide", def:"v. to come together with great or violent force", ex:"As usual, their holiday was ruined when their in-laws' views on politics collided with their own."},
+  {en:"eruption", def:"n. a sudden, often violent, outburst", ex:"The eruption of Mount St. Helens in 1980 caused 57 deaths and immeasurable change to the face of the mountain."},
+  {en:"famine", def:"n. severe hunger; a drastic food shortage", ex:"The potato famine in Ireland in the mid-nineteenth century caused large numbers of Irish people to emigrate to America."},
+  {en:"flood", def:"n. an overflowing of water; an excessive amount", ex:"The constant rain and poor drainage system caused a flood in town."},
+  {en:"impact", def:"n. a strong influence", ex:"The speech about the importance of education made an impact on me."},
+  {en:"persevere", def:"v. to keep going, despite obstacles or discouragement; to maintain a purpose", ex:"The hikers persevered despite the bad weather and the icy trail."},
+  {en:"plunge", def:"v. to go down suddenly; to decrease by a great amount in a short time", ex:"He jumped off the diving board and plunged into the pool."},
+  {en:"unleash", def:"v. to release a thing or an emotion", ex:"When they saw the strange man on their property, they unleashed their dogs."}
+];
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+function highlightTerm(ex, term){
+  const idx = ex.toLowerCase().indexOf(term.toLowerCase());
+  if(idx===-1) return ex;
+  return ex.slice(0,idx) + '<mark class="term">' + ex.slice(idx, idx+term.length) + '</mark>' + ex.slice(idx+term.length);
+}
+
+/* ================= TABS ================= */
+const tabButtons = document.querySelectorAll('#tabs button');
+tabButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById('screen-'+btn.dataset.target).classList.add('active');
+  });
+});
+
+/* ================= FLASHCARDS ================= */
+let flashDeck = shuffle(VOCAB);
+let flashIdx = 0;
+const flashCardEl = document.getElementById('flashCard');
+function renderFlash(){
+  const item = flashDeck[flashIdx];
+  flashCardEl.classList.remove('flipped');
+  document.getElementById('flashWord').textContent = item.en;
+  document.getElementById('flashDef').textContent = item.def;
+  document.getElementById('flashExample').innerHTML = highlightTerm(item.ex, item.en);
+  document.getElementById('flashProgress').textContent = (flashIdx+1) + ' / ' + flashDeck.length;
+}
+flashCardEl.addEventListener('click', ()=> flashCardEl.classList.toggle('flipped'));
+document.getElementById('flashNext').addEventListener('click', ()=>{
+  flashIdx = (flashIdx+1) % flashDeck.length;
+  renderFlash();
+});
+document.getElementById('flashPrev').addEventListener('click', ()=>{
+  flashIdx = (flashIdx-1+flashDeck.length) % flashDeck.length;
+  renderFlash();
+});
+document.getElementById('flashShuffle').addEventListener('click', ()=>{
+  flashDeck = shuffle(VOCAB);
+  flashIdx = 0;
+  renderFlash();
+});
+renderFlash();
+
+/* ================= QUIZ ================= */
+let quizQuestions = [];
+let quizIdx = 0;
+let quizScore = 0;
+function buildQuiz(){
+  quizQuestions = shuffle(VOCAB).slice(0,10).map(item=>{
+    const wrongPool = shuffle(VOCAB.filter(v=>v.en!==item.en)).slice(0,3);
+    const options = shuffle([item, ...wrongPool]);
+    return {item, options};
+  });
+  quizIdx = 0;
+  quizScore = 0;
+  renderQuiz();
+}
+function renderQuiz(){
+  document.getElementById('quizScore').textContent = quizScore;
+  document.getElementById('quizNum').textContent = Math.min(quizIdx+1,10) + '/10';
+  const body = document.getElementById('quizBody');
+  if(quizIdx >= quizQuestions.length){
+    body.innerHTML = '<div class="result-box"><div class="big">' + quizScore + ' / 10</div><p>Yakuniy natija</p></div>';
+    body.innerHTML += '<div class="flash-controls"><button class="btn btn-primary" id="quizRestart">Qayta boshlash</button></div>';
+    document.getElementById('quizRestart').addEventListener('click', buildQuiz);
+    return;
+  }
+  const q = quizQuestions[quizIdx];
+  body.innerHTML = `
+    <div class="quiz-question">
+      <div class="qlabel">Ta'rif</div>
+      <div class="qtext">${q.item.def}</div>
+    </div>
+    <div class="options" id="quizOptions"></div>
+  `;
+  const optWrap = document.getElementById('quizOptions');
+  q.options.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = opt.en;
+    b.addEventListener('click', ()=> handleQuizAnswer(opt, q.item, b));
+    optWrap.appendChild(b);
+  });
+}
+function handleQuizAnswer(chosen, correct, btnEl){
+  const allBtns = document.querySelectorAll('#quizOptions .opt');
+  allBtns.forEach(b=>b.disabled = true);
+  if(chosen.en === correct.en){
+    btnEl.classList.add('correct');
+    quizScore++;
+  } else {
+    btnEl.classList.add('wrong');
+    allBtns.forEach(b=>{ if(b.textContent === correct.en) b.classList.add('correct'); });
+  }
+  document.getElementById('quizScore').textContent = quizScore;
+  setTimeout(()=>{ quizIdx++; renderQuiz(); }, 900);
+}
+buildQuiz();
+
+/* ================= MEMORY ================= */
+let memCards = [];
+let memOpen = [];
+let memMoves = 0;
+let memPairsFound = 0;
+let memLock = false;
+function buildMemory(){
+  const chosen = shuffle(VOCAB);
+  const cards = [];
+  chosen.forEach((item, i)=>{
+    cards.push({key:i, side:'en', text:item.en});
+    cards.push({key:i, side:'def', text:item.def});
+  });
+  memCards = shuffle(cards);
+  memOpen = [];
+  memMoves = 0;
+  memPairsFound = 0;
+  memLock = false;
+  document.getElementById('memMoves').textContent = 0;
+  document.getElementById('memPairs').textContent = '0/10';
+  renderMemory();
+}
+function renderMemory(){
+  const grid = document.getElementById('memGrid');
+  grid.innerHTML = '';
+  memCards.forEach((c, i)=>{
+    const cardEl = document.createElement('div');
+    cardEl.className = 'mem-card';
+    cardEl.dataset.index = i;
+    cardEl.innerHTML = `
+      <div class="mem-card-inner">
+        <div class="mem-face mem-front"></div>
+        <div class="mem-face mem-back">${c.text}</div>
+      </div>
+    `;
+    cardEl.addEventListener('click', ()=> handleMemClick(i, cardEl));
+    grid.appendChild(cardEl);
+  });
+}
+function handleMemClick(i, el){
+  if(memLock) return;
+  const c = memCards[i];
+  if(el.classList.contains('open') || el.classList.contains('matched')) return;
+  if(memOpen.length === 2) return;
+  el.classList.add('open');
+  memOpen.push({i, el, c});
+  if(memOpen.length === 2){
+    memMoves++;
+    document.getElementById('memMoves').textContent = memMoves;
+    memLock = true;
+    const [a,b] = memOpen;
+    if(a.c.key === b.c.key && a.c.side !== b.c.side){
+      setTimeout(()=>{
+        a.el.classList.add('matched');
+        b.el.classList.add('matched');
+        memOpen = [];
+        memLock = false;
+        memPairsFound++;
+        document.getElementById('memPairs').textContent = memPairsFound + '/10';
+      }, 400);
+    } else {
+      setTimeout(()=>{
+        a.el.classList.add('wrongflash');
+        b.el.classList.add('wrongflash');
+      }, 300);
+      setTimeout(()=>{
+        a.el.classList.remove('open','wrongflash');
+        b.el.classList.remove('open','wrongflash');
+        memOpen = [];
+        memLock = false;
+      }, 900);
+    }
+  }
+}
+document.getElementById('memRestart').addEventListener('click', buildMemory);
+buildMemory();
+
+/* ================= SPEED ROUND ================= */
+let speedActive = false;
+let speedScore = 0;
+let speedTimeLeft = 20;
+let speedTimerId = null;
+let speedQueue = [];
+function speedNewQuestion(){
+  if(speedQueue.length < 4){
+    speedQueue = shuffle(VOCAB);
+  }
+  const item = speedQueue.pop();
+  const wrongPool = shuffle(VOCAB.filter(v=>v.en!==item.en)).slice(0,3);
+  const options = shuffle([item, ...wrongPool]);
+  const body = document.getElementById('speedBody');
+  body.innerHTML = `
+    <div class="timer-bar-track"><div class="timer-bar-fill" id="speedBar" style="width:100%"></div></div>
+    <div class="quiz-question">
+      <div class="qlabel">So'z</div>
+      <div class="qtext">${item.en}</div>
+    </div>
+    <div class="options" id="speedOptions"></div>
+  `;
+  updateSpeedBar();
+  const optWrap = document.getElementById('speedOptions');
+  options.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = opt.def;
+    b.addEventListener('click', ()=>{
+      if(!speedActive) return;
+      if(opt.en === item.en){
+        speedScore++;
+        document.getElementById('speedScore').textContent = speedScore;
+        b.classList.add('correct');
+      } else {
+        b.classList.add('wrong');
+      }
+      setTimeout(speedNewQuestion, 260);
+    });
+    optWrap.appendChild(b);
+  });
+}
+function updateSpeedBar(){
+  const bar = document.getElementById('speedBar');
+  if(!bar) return;
+  const pct = (speedTimeLeft/20)*100;
+  bar.style.width = pct + '%';
+  bar.classList.toggle('danger', speedTimeLeft <= 15);
+}
+function startSpeed(){
+  if(speedTimerId) clearInterval(speedTimerId);
+  speedActive = true;
+  speedScore = 0;
+  speedTimeLeft = 20;
+  document.getElementById('speedScore').textContent = 0;
+  document.getElementById('speedTime').textContent = 20;
+  speedQueue = shuffle(VOCAB);
+  speedNewQuestion();
+  speedTimerId = setInterval(()=>{
+    speedTimeLeft--;
+    document.getElementById('speedTime').textContent = speedTimeLeft;
+    updateSpeedBar();
+    if(speedTimeLeft <= 0){
+      clearInterval(speedTimerId);
+      endSpeed();
+    }
+  }, 1000);
+}
+function endSpeed(){
+  speedActive = false;
+  const body = document.getElementById('speedBody');
+  body.innerHTML = `
+    <div class="result-box">
+      <div class="big">${speedScore}</div>
+      <p>20 soniyada to'g'ri javoblar soni</p>
+      <button class="btn btn-primary" id="speedRestart">Qayta urinish</button>
+    </div>
+  `;
+  document.getElementById('speedRestart').addEventListener('click', startSpeed);
+}
+document.getElementById('speedStart').addEventListener('click', startSpeed);
+document.getElementById('speedRestartTop').addEventListener('click', startSpeed);
+
+/* ================= MATCHING ================= */
+let matchRound = 1;
+let matchWordsData = [];
+let matchDefsData = [];
+let matchSelectedWord = null;
+let matchSelectedDef = null;
+let matchPairsFound = 0;
+function buildMatch(){
+  const chosen = shuffle(VOCAB);
+  matchWordsData = shuffle(chosen);
+  matchDefsData = shuffle(chosen);
+  matchSelectedWord = null;
+  matchSelectedDef = null;
+  matchPairsFound = 0;
+  document.getElementById('matchPairs').textContent = '0/10';
+  document.getElementById('matchRound').textContent = matchRound;
+  renderMatch();
+}
+function renderMatch(){
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  wordsCol.innerHTML = '';
+  defsCol.innerHTML = '';
+  matchWordsData.forEach(item=>{
+    const b = document.createElement('button');
+    b.className = 'match-item';
+    b.textContent = item.en;
+    b.dataset.key = item.en;
+    b.addEventListener('click', ()=> selectMatch('word', item, b));
+    wordsCol.appendChild(b);
+  });
+  matchDefsData.forEach(item=>{
+    const b = document.createElement('button');
+    b.className = 'match-item';
+    b.textContent = item.def;
+    b.dataset.key = item.en;
+    b.addEventListener('click', ()=> selectMatch('def', item, b));
+    defsCol.appendChild(b);
+  });
+}
+function selectMatch(side, item, el){
+  if(el.classList.contains('matched')) return;
+  if(side === 'word'){
+    if(matchSelectedWord) matchSelectedWord.el.classList.remove('selected');
+    matchSelectedWord = {item, el};
+    el.classList.add('selected');
+  } else {
+    if(matchSelectedDef) matchSelectedDef.el.classList.remove('selected');
+    matchSelectedDef = {item, el};
+    el.classList.add('selected');
+  }
+  if(matchSelectedWord && matchSelectedDef){
+    if(matchSelectedWord.item.en === matchSelectedDef.item.en){
+      matchSelectedWord.el.classList.remove('selected');
+      matchSelectedDef.el.classList.remove('selected');
+      matchSelectedWord.el.classList.add('matched');
+      matchSelectedDef.el.classList.add('matched');
+      matchPairsFound++;
+      document.getElementById('matchPairs').textContent = matchPairsFound + '/10';
+      matchSelectedWord = null;
+      matchSelectedDef = null;
+    } else {
+      const w = matchSelectedWord.el, d = matchSelectedDef.el;
+      w.classList.add('shake'); d.classList.add('shake');
+      setTimeout(()=>{
+        w.classList.remove('shake','selected');
+        d.classList.remove('shake','selected');
+        matchSelectedWord = null;
+        matchSelectedDef = null;
+      }, 350);
+    }
+  }
+}
+document.getElementById('matchNextRound').addEventListener('click', ()=>{
+  matchRound++;
+  buildMatch();
+});
+buildMatch();
+</script>
+
+
+</body></html>
